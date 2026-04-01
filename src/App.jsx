@@ -5,12 +5,12 @@ function App() {
     <div className="page">
       <header className="header">
         <span className="header-label">Alex Redshaw</span>
-        <span className="header-label">Portfolio</span>
+        <a className="header-label header-link" href="https://github.com/Helligon/" target="_blank" rel="noreferrer">GitHub</a>
       </header>
 
       <main className="main">
         <div className="main-left">
-          <h1 className="name">Alex<br />Red<br />shaw</h1>
+          <h1 className="name">Alex<br />Redshaw</h1>
         </div>
         <div className="main-right">
           <p className="role">Designer<br />&amp;<br />Developer</p>
@@ -26,7 +26,7 @@ function App() {
       </main>
 
       <footer className="footer">
-``        <div className="footer-block footer-block--yellow" />
+        <div className="footer-block footer-block--yellow" />
         <div className="footer-block footer-block--red" />
       </footer>
     </div>

@@ -44,6 +44,14 @@ body {
   color: var(--white);
 }
 
+.header-link {
+  text-decoration: none;
+}
+
+.header-link:hover {
+  text-decoration: underline;
+}
+
 /* Main */
 .main {
   display: grid;
