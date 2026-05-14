@@ -106,3 +106,25 @@ body {
 
 .footer-block--yellow { background: var(--yellow); }
 .footer-block--red    { background: var(--red); border-left: var(--border); }
+
+/* CTA Button */
+.cta-btn {
+  margin-top: 24px;
+  padding: 10px 20px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--black);
+  border: var(--border);
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background 0.15s, color 0.15s;
+}
+
+.cta-btn:hover {
+  background: var(--black);
+  color: var(--white);
+}
