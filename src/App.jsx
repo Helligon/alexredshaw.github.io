@@ -121,7 +121,10 @@ function App() {
   return (
     <div className="page" id="top">
       <header className="header">
-        <a className="header-label header-link header-home" href="#top">Alex Redshaw</a>
+        <a className="header-label header-link header-home" href="#top">
+          <img src="/favicon.svg" alt="" className="header-logo" />
+          Alex Redshaw
+        </a>
         <nav className="header-nav">
           <a className="header-label header-link" href="#skills">Skills</a>
           <a className="header-label header-link" href="#timeline">Experience</a>

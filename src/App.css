@@ -59,6 +59,18 @@ body {
   text-decoration: underline;
 }
 
+.header-home {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-logo {
+  height: 28px;
+  width: 28px;
+  display: block;
+}
+
 .header-nav {
   display: flex;
   gap: 24px;
