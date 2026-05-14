@@ -1,4 +1,37 @@
+import { useEffect } from 'react'
 import './App.css'
+
+const PALETTE = [
+  { bg: '#0057D8', text: '#fff' },
+  { bg: '#E8000D', text: '#fff' },
+  { bg: '#00A550', text: '#fff' },
+  { bg: '#FFD600', text: '#000' },
+]
+
+const ALL_TAGS = [
+  'React', 'TypeScript', 'JavaScript', 'HTML / CSS',
+  'Node.js', 'Java', 'REST APIs', 'Microservices',
+  'AWS', 'Docker', 'GitHub Pipelines',
+  'Elastic', 'Kibana', 'Grafana',
+  'Multi-Agent Orchestration', 'Agentic Workflows', 'RAG', 'Claude Code', 'A2A',
+  'Claude Opus', 'Claude Sonnet', 'Claude Haiku', 'Llama 3.2', 'Mistral',
+  'Ollama', 'MCP', 'Skills & Plugins',
+  'Prompt Engineering', 'Context Management', 'Tool Use', 'Agent Memory', 'Orchestration Patterns',
+]
+
+function buildTagColours(tags) {
+  const map = {}
+  let last = null
+  tags.forEach(tag => {
+    const choices = PALETTE.filter(c => c !== last)
+    const pick = choices[Math.floor(Math.random() * choices.length)]
+    map[tag] = pick
+    last = pick
+  })
+  return map
+}
+
+const TAG_COLOURS = buildTagColours(ALL_TAGS)
 
 const timelineEntries = [
   {
@@ -7,7 +40,6 @@ const timelineEntries = [
     role: 'Personal Learning',
     dates: 'Ongoing',
     colour: 'var(--blue)',
-    logo: null,
     initials: 'AI',
     bullets: [
       'Agent teams & A2A communication',
@@ -20,7 +52,6 @@ const timelineEntries = [
     role: 'Full Stack Software Engineer',
     dates: 'Jul 2022 – Apr 2026',
     colour: 'var(--blue)',
-    logo: null,
     initials: 'Sky',
     bullets: [
       'Led Experience Tracker — ~1.5M weekly users',
@@ -34,7 +65,6 @@ const timelineEntries = [
     role: 'JavaScript Developer',
     dates: 'Nov 2020 – Jul 2022',
     colour: 'var(--red)',
-    logo: null,
     initials: 'OP',
     bullets: [
       'Financial SOAP/XML data translation layer',
@@ -47,7 +77,6 @@ const timelineEntries = [
     role: 'Graduate Developer',
     dates: 'Aug 2019 – Nov 2020',
     colour: 'var(--yellow)',
-    logo: null,
     initials: 'WK',
     bullets: [
       'Real-time 3D rendering from 2D plans',
@@ -60,13 +89,27 @@ const timelineEntries = [
     role: 'Maths & Computer Science BSc 2:1',
     dates: 'Graduated 2019',
     colour: 'var(--black)',
-    logo: null,
     initials: 'LBU',
     bullets: [],
   },
 ]
 
 function App() {
+  useEffect(() => {
+    const nodes = document.querySelectorAll('.timeline-node')
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('timeline-node--visible')
+          observer.unobserve(e.target)
+        }
+      }),
+      { threshold: 0.3 }
+    )
+    nodes.forEach(n => observer.observe(n))
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <div className="page">
       <header className="header">
@@ -100,7 +143,7 @@ function App() {
             <span className="skill-group-label">Frontend</span>
             <div className="skill-tags">
               {['React', 'TypeScript', 'JavaScript', 'HTML / CSS'].map(t => (
-                <span key={t} className="skill-tag">{t}</span>
+                <span key={t} className="skill-tag" style={{ background: TAG_COLOURS[t].bg, color: TAG_COLOURS[t].text }}>{t}</span>
               ))}
             </div>
           </div>
@@ -109,7 +152,7 @@ function App() {
             <span className="skill-group-label">Backend</span>
             <div className="skill-tags">
               {['Node.js', 'Java', 'REST APIs', 'Microservices'].map(t => (
-                <span key={t} className="skill-tag">{t}</span>
+                <span key={t} className="skill-tag" style={{ background: TAG_COLOURS[t].bg, color: TAG_COLOURS[t].text }}>{t}</span>
               ))}
             </div>
           </div>
@@ -118,7 +161,7 @@ function App() {
             <span className="skill-group-label">Cloud &amp; DevOps</span>
             <div className="skill-tags">
               {['AWS', 'Docker', 'GitHub Pipelines'].map(t => (
-                <span key={t} className="skill-tag">{t}</span>
+                <span key={t} className="skill-tag" style={{ background: TAG_COLOURS[t].bg, color: TAG_COLOURS[t].text }}>{t}</span>
               ))}
             </div>
           </div>
@@ -127,7 +170,7 @@ function App() {
             <span className="skill-group-label">Data &amp; Observability</span>
             <div className="skill-tags">
               {['Elastic', 'Kibana', 'Grafana'].map(t => (
-                <span key={t} className="skill-tag">{t}</span>
+                <span key={t} className="skill-tag" style={{ background: TAG_COLOURS[t].bg, color: TAG_COLOURS[t].text }}>{t}</span>
               ))}
             </div>
           </div>
@@ -135,16 +178,49 @@ function App() {
 
         <div className="skills-col skills-col--ai">
           <span className="skills-col-label">AI (Personal)</span>
+
           <div className="skill-group">
             <span className="skill-group-label">Focus areas</span>
             <div className="skill-tags">
               {['Multi-Agent Orchestration', 'Agentic Workflows', 'RAG', 'Claude Code', 'A2A'].map(t => (
-                <span key={t} className="skill-tag">{t}</span>
+                <span key={t} className="skill-tag" style={{ background: TAG_COLOURS[t].bg, color: TAG_COLOURS[t].text }}>{t}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="skill-group">
+            <span className="skill-group-label">Models</span>
+            <div className="skill-tags">
+              {['Claude Opus', 'Claude Sonnet', 'Claude Haiku', 'Llama 3.2', 'Mistral'].map(t => (
+                <span key={t} className="skill-tag" style={{ background: TAG_COLOURS[t].bg, color: TAG_COLOURS[t].text }}>{t}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="skill-group">
+            <span className="skill-group-label">Tooling</span>
+            <div className="skill-tags">
+              {['Ollama', 'MCP', 'Skills & Plugins'].map(t => (
+                <span key={t} className="skill-tag" style={{ background: TAG_COLOURS[t].bg, color: TAG_COLOURS[t].text }}>{t}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="skill-group">
+            <span className="skill-group-label">Concepts</span>
+            <div className="skill-tags">
+              {['Prompt Engineering', 'Context Management', 'Tool Use', 'Agent Memory', 'Orchestration Patterns'].map(t => (
+                <span key={t} className="skill-tag" style={{ background: TAG_COLOURS[t].bg, color: TAG_COLOURS[t].text }}>{t}</span>
               ))}
             </div>
           </div>
         </div>
       </section>
+
+      <div className="section-break">
+        <div className="section-break--yellow" />
+        <div className="section-break--red" />
+      </div>
 
       <section className="timeline" id="timeline">
         <span className="timeline-label">Experience</span>
