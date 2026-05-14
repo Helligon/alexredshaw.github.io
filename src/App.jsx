@@ -42,8 +42,9 @@ const timelineEntries = [
     colour: 'var(--blue)',
     initials: 'AI',
     bullets: [
-      'Agent teams & A2A communication',
-      'Custom skills, plugins & bespoke config',
+      'Built AI Agent Teams using A2A communication to explore agentic workflows at scale',
+      'Bespoke global and project-level config optimising token usage by up to −25%',
+      'Designed and implemented project-specific Skills, Agents and Plugins',
     ],
   },
   {
@@ -54,9 +55,11 @@ const timelineEntries = [
     colour: 'var(--blue)',
     initials: 'Sky',
     bullets: [
-      'Led Experience Tracker — ~1.5M weekly users',
-      'Monolith → microservices, −50% cycle time',
-      '15 internal awards from Senior Leadership',
+      'Led Experience Tracker across ~1.5M weekly users, improving CTR and reducing Customer Service costs',
+      'Contributed to monolith → microservices migration across multiple product domains, −50% cycle time',
+      'Recognised with 15 internal awards; contract renewed twice before going permanent',
+      'Career Coach and Mentor — supported 3 colleagues through promotion',
+      'Certified practitioner of Scaled Agile Framework (SAFe)',
     ],
   },
   {
@@ -67,8 +70,8 @@ const timelineEntries = [
     colour: 'var(--red)',
     initials: 'OP',
     bullets: [
-      'Financial SOAP/XML data translation layer',
-      'Custom reporting & data visualisation',
+      'Built a data translation layer to communicate with financial SOAP/XML APIs used across the digital estate',
+      'Produced custom reports and data visualisations to support business leadership decisions',
     ],
   },
   {
@@ -79,32 +82,37 @@ const timelineEntries = [
     colour: 'var(--yellow)',
     initials: 'WK',
     bullets: [
-      'Real-time 3D rendering from 2D plans',
-      'RealIT Project of the Year',
+      'Contributed to a 2D/3D browser-based CAD platform across apps of up to ~1M lines of code',
+      'Developed real-time 3D rendering from 2D plans, contributing to winning RealIT Project of the Year',
+      'Led implementation of Bézier curve logic used in both technical construction plans and customer-facing outputs',
     ],
   },
   {
     id: 'lbu',
     company: 'Leeds Beckett University',
-    role: 'Maths & Computer Science BSc 2:1',
+    role: 'Mathematics & Computer Science BSc (Hons) 2:1',
     dates: 'Graduated 2019',
     colour: 'var(--black)',
     initials: 'LBU',
-    bullets: [],
+    bullets: [
+      'A Levels: Maths (A), Physics (B), Further Maths (D)',
+    ],
   },
 ]
 
 function App() {
   useEffect(() => {
     const nodes = document.querySelectorAll('.timeline-node')
+    nodes.forEach(n => n.classList.add('timeline-node--hidden'))
     const observer = new IntersectionObserver(
       entries => entries.forEach(e => {
         if (e.isIntersecting) {
+          e.target.classList.remove('timeline-node--hidden')
           e.target.classList.add('timeline-node--visible')
           observer.unobserve(e.target)
         }
       }),
-      { threshold: 0.3 }
+      { threshold: 0 }
     )
     nodes.forEach(n => observer.observe(n))
     return () => observer.disconnect()
