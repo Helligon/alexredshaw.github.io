@@ -1,5 +1,71 @@
 import './App.css'
 
+const timelineEntries = [
+  {
+    id: 'ai',
+    company: 'Agentic AI',
+    role: 'Personal Learning',
+    dates: 'Ongoing',
+    colour: 'var(--blue)',
+    logo: null,
+    initials: 'AI',
+    bullets: [
+      'Agent teams & A2A communication',
+      'Custom skills, plugins & bespoke config',
+    ],
+  },
+  {
+    id: 'sky',
+    company: 'Sky',
+    role: 'Full Stack Software Engineer',
+    dates: 'Jul 2022 – Apr 2026',
+    colour: 'var(--blue)',
+    logo: null,
+    initials: 'Sky',
+    bullets: [
+      'Led Experience Tracker — ~1.5M weekly users',
+      'Monolith → microservices, −50% cycle time',
+      '15 internal awards from Senior Leadership',
+    ],
+  },
+  {
+    id: 'onepay',
+    company: 'OnePay',
+    role: 'JavaScript Developer',
+    dates: 'Nov 2020 – Jul 2022',
+    colour: 'var(--red)',
+    logo: null,
+    initials: 'OP',
+    bullets: [
+      'Financial SOAP/XML data translation layer',
+      'Custom reporting & data visualisation',
+    ],
+  },
+  {
+    id: 'wren',
+    company: 'Wren Kitchens',
+    role: 'Graduate Developer',
+    dates: 'Aug 2019 – Nov 2020',
+    colour: 'var(--yellow)',
+    logo: null,
+    initials: 'WK',
+    bullets: [
+      'Real-time 3D rendering from 2D plans',
+      'RealIT Project of the Year',
+    ],
+  },
+  {
+    id: 'lbu',
+    company: 'Leeds Beckett University',
+    role: 'Maths & Computer Science BSc 2:1',
+    dates: 'Graduated 2019',
+    colour: 'var(--black)',
+    logo: null,
+    initials: 'LBU',
+    bullets: [],
+  },
+]
+
 function App() {
   return (
     <div className="page">
@@ -78,6 +144,35 @@ function App() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="timeline" id="timeline">
+        <span className="timeline-label">Experience</span>
+        {timelineEntries.map((entry, i) => (
+          <div
+            key={entry.id}
+            className={`timeline-entry ${i % 2 === 0 ? 'timeline-entry--odd' : 'timeline-entry--even'}`}
+          >
+            <div className="timeline-node" style={{ borderColor: entry.colour }}>
+              <span
+                className="timeline-node-initials"
+                style={{ color: entry.colour }}
+              >
+                {entry.initials}
+              </span>
+            </div>
+            <div className="timeline-content">
+              <div className="timeline-company">{entry.company}</div>
+              <div className="timeline-role">{entry.role}</div>
+              <div className="timeline-dates">{entry.dates}</div>
+              {entry.bullets.length > 0 && (
+                <ul className="timeline-bullets">
+                  {entry.bullets.map(b => <li key={b}>{b}</li>)}
+                </ul>
+              )}
+            </div>
+          </div>
+        ))}
       </section>
 
       <footer className="footer">
