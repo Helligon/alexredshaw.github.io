@@ -26,6 +26,60 @@ function App() {
         </div>
       </main>
 
+      <section className="skills">
+        <div className="skills-col skills-col--tech">
+          <span className="skills-col-label">Tech Stack</span>
+
+          <div className="skill-group">
+            <span className="skill-group-label">Frontend</span>
+            <div className="skill-tags">
+              {['React', 'TypeScript', 'JavaScript', 'HTML / CSS'].map(t => (
+                <span key={t} className="skill-tag">{t}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="skill-group">
+            <span className="skill-group-label">Backend</span>
+            <div className="skill-tags">
+              {['Node.js', 'Java', 'REST APIs', 'Microservices'].map(t => (
+                <span key={t} className="skill-tag">{t}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="skill-group">
+            <span className="skill-group-label">Cloud &amp; DevOps</span>
+            <div className="skill-tags">
+              {['AWS', 'Docker', 'GitHub Pipelines'].map(t => (
+                <span key={t} className="skill-tag">{t}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="skill-group">
+            <span className="skill-group-label">Data &amp; Observability</span>
+            <div className="skill-tags">
+              {['Elastic', 'Kibana', 'Grafana'].map(t => (
+                <span key={t} className="skill-tag">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="skills-col skills-col--ai">
+          <span className="skills-col-label">AI (Personal)</span>
+          <div className="skill-group">
+            <span className="skill-group-label">Focus areas</span>
+            <div className="skill-tags">
+              {['Multi-Agent Orchestration', 'Agentic Workflows', 'RAG', 'Claude Code', 'A2A'].map(t => (
+                <span key={t} className="skill-tag">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <footer className="footer">
         <div className="footer-block footer-block--yellow" />
         <div className="footer-block footer-block--red" />

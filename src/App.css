@@ -133,3 +133,80 @@ body {
   outline: 3px solid var(--black);
   outline-offset: 3px;
 }
+
+/* Skills */
+.skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: var(--border);
+}
+
+.skills-col {
+  padding: 40px;
+}
+
+.skills-col--tech {
+  border-right: var(--border);
+}
+
+.skills-col--ai {
+  background: var(--black);
+}
+
+.skills-col-label {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-bottom: var(--border);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.skills-col--ai .skills-col-label {
+  color: var(--yellow);
+  border-bottom-color: var(--yellow);
+}
+
+.skill-group {
+  margin-bottom: 18px;
+}
+
+.skill-group:last-child {
+  margin-bottom: 0;
+}
+
+.skill-group-label {
+  display: block;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.skills-col--ai .skill-group-label {
+  color: #666;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 2px solid var(--black);
+  padding: 4px 8px;
+}
+
+.skills-col--ai .skill-tag {
+  border-color: var(--yellow);
+  color: var(--yellow);
+}
