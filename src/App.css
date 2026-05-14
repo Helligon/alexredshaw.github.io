@@ -62,6 +62,7 @@ body {
 .main {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 150px);
 }
 
 .main-left {
@@ -132,6 +133,17 @@ body {
   outline-offset: 3px;
 }
 
+.cta-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.cta-btns .cta-btn {
+  margin-top: 0;
+}
+
 /* Skills */
 .skills {
   display: grid;
@@ -195,7 +207,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   border-top: var(--border);
-  height: 48px;
+  height: 96px;
 }
 
 .section-break--yellow { background: var(--yellow); }

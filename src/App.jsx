@@ -126,16 +126,29 @@ function App() {
           <p className="intro">
             Full-stack engineer with 6+ years building large-scale systems at Sky, OnePay, and Wren Kitchens. Comfortable across the stack — from React frontends to Node microservices to cloud infrastructure. Currently exploring Agentic AI workflows.
           </p>
-          <button
-            className="cta-btn"
-            onClick={() => document.getElementById('timeline').scrollIntoView({ behavior: 'smooth' })}
-          >
-            Take a look at my experience
-          </button>
+          <div className="cta-btns">
+            <button
+              className="cta-btn"
+              onClick={() => document.getElementById('skills').scrollIntoView({ behavior: 'smooth' })}
+            >
+              Take a look at my skills
+            </button>
+            <button
+              className="cta-btn"
+              onClick={() => document.getElementById('timeline').scrollIntoView({ behavior: 'smooth' })}
+            >
+              Take a look at my experience
+            </button>
+          </div>
         </div>
       </main>
 
-      <section className="skills">
+      <div className="section-break">
+        <div className="section-break--yellow" />
+        <div className="section-break--red" />
+      </div>
+
+      <section className="skills" id="skills">
         <div className="skills-col skills-col--tech">
           <span className="skills-col-label">Tech Stack</span>
 
