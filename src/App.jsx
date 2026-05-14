@@ -151,7 +151,7 @@ function App() {
         {timelineEntries.map((entry, i) => (
           <div
             key={entry.id}
-            className={`timeline-entry ${i % 2 === 0 ? 'timeline-entry--odd' : 'timeline-entry--even'}`}
+            className={`timeline-entry${i % 2 !== 0 ? ' timeline-entry--even' : ''}`}
           >
             <div className="timeline-node" style={{ borderColor: entry.colour }}>
               <span
