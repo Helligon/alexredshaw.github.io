@@ -119,10 +119,15 @@ function App() {
   }, [])
 
   return (
-    <div className="page">
+    <div className="page" id="top">
       <header className="header">
-        <span className="header-label">Alex Redshaw</span>
-        <a className="header-label header-link" href="https://github.com/Helligon/" target="_blank" rel="noreferrer">GitHub</a>
+        <a className="header-label header-link header-home" href="#top">Alex Redshaw</a>
+        <nav className="header-nav">
+          <a className="header-label header-link" href="#skills">Skills</a>
+          <a className="header-label header-link" href="#timeline">Experience</a>
+          <a className="header-label header-link" href="https://github.com/Helligon/" target="_blank" rel="noreferrer">GitHub</a>
+          <a className="header-label header-link" href="https://www.linkedin.com/in/alex-redshaw/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </nav>
       </header>
 
       <main className="main">

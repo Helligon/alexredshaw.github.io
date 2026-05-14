@@ -13,6 +13,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background: var(--white);
@@ -34,6 +38,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .header-label {
@@ -50,6 +57,12 @@ body {
 
 .header-link:hover {
   text-decoration: underline;
+}
+
+.header-nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
 }
 
 /* Name fade-in */
