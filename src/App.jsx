@@ -120,6 +120,18 @@ function App() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    if (!menuOpen) return
+    const handleKey = (e) => { if (e.key === 'Escape') setMenuOpen(false) }
+    window.addEventListener('keydown', handleKey)
+    return () => window.removeEventListener('keydown', handleKey)
+  }, [menuOpen])
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
+
   return (
     <div className="page" id="top">
       <header className="header">

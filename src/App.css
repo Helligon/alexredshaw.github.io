@@ -21,6 +21,7 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background: var(--white);
   color: var(--black);
+  overflow-x: hidden;
 }
 
 .page {
@@ -72,9 +73,78 @@ body {
 }
 
 .header-nav {
+  display: none;
+}
+
+.hamburger {
   display: flex;
-  gap: 24px;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--white);
+}
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--blue);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  border: var(--border);
+}
+
+.nav-overlay-header {
+  padding: 16px 32px;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  border-bottom: var(--border);
+  flex-shrink: 0;
+}
+
+.nav-overlay-close {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 900;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.nav-overlay-links {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.nav-overlay-link {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  padding: 24px 32px;
+  border-bottom: var(--border);
+}
+
+.nav-overlay-link:hover {
+  text-decoration: underline;
 }
 
 /* Name fade-in */
@@ -355,3 +425,21 @@ body {
 
 .footer-block--yellow { background: var(--yellow); border-right: var(--border); }
 .footer-block--red    { background: var(--red); }
+
+/* ===== Small tablet: 480px+ ===== */
+@media (min-width: 480px) {
+  /* Reserved for future spacing and typography tweaks */
+}
+
+/* ===== Desktop: 768px+ ===== */
+@media (min-width: 768px) {
+  .header-nav {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
