@@ -310,7 +310,7 @@ body {
 /* Timeline */
 .timeline {
   border-top: var(--border);
-  padding: 48px 280px;
+  padding: 32px 20px;
 }
 
 .timeline-label {
@@ -326,20 +326,31 @@ body {
 
 .timeline-entry {
   display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  margin-bottom: 40px;
+  flex-direction: column;
+  padding: 20px 0;
+  border-bottom: var(--border);
 }
 
 .timeline-entry:last-child {
-  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
-.timeline-entry--even {
+.timeline-entry-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.timeline-entry--even .timeline-entry-header {
   flex-direction: row-reverse;
 }
 
-.timeline-entry--even .timeline-content {
+.timeline-meta {
+  text-align: left;
+}
+
+.timeline-entry--even .timeline-meta {
   text-align: right;
 }
 
@@ -398,13 +409,10 @@ body {
 }
 
 .timeline-bullets {
-  margin-top: 8px;
-  padding-left: 16px;
   list-style: none;
-}
-
-.timeline-entry--even .timeline-bullets {
-  padding-left: 0;
+  padding: 0;
+  margin-top: 12px;
+  text-align: center;
 }
 
 .timeline-bullets li {
@@ -470,5 +478,57 @@ body {
   .skills-col--tech {
     border-bottom: none;
     border-right: var(--border);
+  }
+
+  .timeline {
+    padding: 48px 280px;
+  }
+
+  .timeline-entry {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 0;
+    margin-bottom: 40px;
+    border-bottom: none;
+  }
+
+  .timeline-entry:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .timeline-entry--even {
+    flex-direction: row-reverse;
+  }
+
+  .timeline-entry-header {
+    flex-shrink: 0;
+    align-items: flex-start;
+  }
+
+  .timeline-entry--even .timeline-entry-header {
+    flex-direction: row-reverse;
+  }
+
+  .timeline-meta {
+    text-align: left;
+  }
+
+  .timeline-entry--even .timeline-meta {
+    text-align: right;
+  }
+
+  .timeline-bullets {
+    flex: 1;
+    text-align: left;
+    padding-left: 16px;
+    margin-top: 8px;
+  }
+
+  .timeline-entry--even .timeline-bullets {
+    text-align: right;
+    padding-left: 0;
   }
 }
