@@ -295,24 +295,26 @@ function App() {
             key={entry.id}
             className={`timeline-entry${i % 2 !== 0 ? ' timeline-entry--even' : ''}`}
           >
-            <div className="timeline-node" style={{ borderColor: entry.colour }}>
-              <span
-                className="timeline-node-initials"
-                style={{ color: entry.colour }}
-              >
-                {entry.initials}
-              </span>
+            <div className="timeline-entry-header">
+              <div className="timeline-node" style={{ borderColor: entry.colour }}>
+                <span
+                  className="timeline-node-initials"
+                  style={{ color: entry.colour }}
+                >
+                  {entry.initials}
+                </span>
+              </div>
+              <div className="timeline-meta">
+                <div className="timeline-company">{entry.company}</div>
+                <div className="timeline-role">{entry.role}</div>
+                <div className="timeline-dates">{entry.dates}</div>
+              </div>
             </div>
-            <div className="timeline-content">
-              <div className="timeline-company">{entry.company}</div>
-              <div className="timeline-role">{entry.role}</div>
-              <div className="timeline-dates">{entry.dates}</div>
-              {entry.bullets.length > 0 && (
-                <ul className="timeline-bullets">
-                  {entry.bullets.map(b => <li key={b}>{b}</li>)}
-                </ul>
-              )}
-            </div>
+            {entry.bullets.length > 0 && (
+              <ul className="timeline-bullets">
+                {entry.bullets.map(b => <li key={b}>{b}</li>)}
+              </ul>
+            )}
           </div>
         ))}
       </section>
