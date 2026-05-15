@@ -240,17 +240,17 @@ body {
 
 /* Skills */
 .skills {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   border-top: var(--border);
 }
 
 .skills-col {
-  padding: 24px 40px;
+  padding: 24px;
 }
 
 .skills-col--tech {
-  border-right: var(--border);
+  border-bottom: var(--border);
 }
 
 .skills-col-label {
@@ -456,5 +456,19 @@ body {
 
   .main-right {
     padding: 56px 40px;
+  }
+
+  .skills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .skills-col {
+    padding: 24px 40px;
+  }
+
+  .skills-col--tech {
+    border-bottom: none;
+    border-right: var(--border);
   }
 }
