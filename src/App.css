@@ -93,6 +93,16 @@ body {
   background: var(--white);
 }
 
+@keyframes overlayExpand {
+  from { clip-path: inset(0 0 100% 0); }
+  to   { clip-path: inset(0 0 0% 0); }
+}
+
+@keyframes linkFadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .nav-overlay {
   position: fixed;
   inset: 0;
@@ -101,6 +111,7 @@ body {
   display: flex;
   flex-direction: column;
   border: var(--border);
+  animation: overlayExpand 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .nav-overlay-header {
@@ -141,7 +152,13 @@ body {
   text-decoration: none;
   padding: 24px 32px;
   border-bottom: var(--border);
+  animation: linkFadeUp 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+
+.nav-overlay-link:nth-child(1) { animation-delay: 0.18s; }
+.nav-overlay-link:nth-child(2) { animation-delay: 0.24s; }
+.nav-overlay-link:nth-child(3) { animation-delay: 0.30s; }
+.nav-overlay-link:nth-child(4) { animation-delay: 0.36s; }
 
 .nav-overlay-link:hover {
   text-decoration: underline;
@@ -412,7 +429,11 @@ body {
   list-style: none;
   padding: 0;
   margin-top: 12px;
-  text-align: center;
+  text-align: left;
+}
+
+.timeline-entry--even .timeline-bullets {
+  text-align: right;
 }
 
 .timeline-bullets li {
@@ -438,7 +459,7 @@ body {
   /* Reserved for future spacing and typography tweaks */
 }
 
-/* ===== Desktop: 768px+ ===== */
+/* ===== Tablet: 768px+ ===== */
 @media (min-width: 768px) {
   .header-nav {
     display: flex;
@@ -481,7 +502,7 @@ body {
   }
 
   .timeline {
-    padding: 48px 280px;
+    padding: 48px 80px;
   }
 
   .timeline-entry {
@@ -530,5 +551,12 @@ body {
   .timeline-entry--even .timeline-bullets {
     text-align: right;
     padding-left: 0;
+  }
+}
+
+/* ===== Desktop: 1024px+ ===== */
+@media (min-width: 1024px) {
+  .timeline {
+    padding: 48px 280px;
   }
 }
