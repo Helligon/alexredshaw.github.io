@@ -31,7 +31,7 @@ export default function Header() {
   return (
     <>
       <header className="header">
-        <Link className="header-label header-link header-home" to="/">
+        <Link className="header-label header-link header-home" to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <img src="/favicon.svg" alt="" className="header-logo" />
           Alex Redshaw
         </Link>
@@ -57,7 +57,7 @@ export default function Header() {
       {menuOpen && (
         <div className="nav-overlay">
           <div className="nav-overlay-header">
-            <Link className="header-label header-link header-home" to="/" onClick={() => setMenuOpen(false)}>
+            <Link className="header-label header-link header-home" to="/" onClick={() => { setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }) }}>
               <img src="/favicon.svg" alt="" className="header-logo" />
               Alex Redshaw
             </Link>
