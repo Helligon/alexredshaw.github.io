@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header'
 
@@ -102,6 +103,16 @@ const timelineEntries = [
 ]
 
 function App() {
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const param = new URLSearchParams(location.search).get('scroll')
+    if (!param) return
+    navigate('/', { replace: true })
+    document.getElementById(param)?.scrollIntoView({ behavior: 'smooth' })
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
   useEffect(() => {
     const nodes = document.querySelectorAll('.timeline-node')
     nodes.forEach(n => n.classList.add('timeline-node--hidden'))

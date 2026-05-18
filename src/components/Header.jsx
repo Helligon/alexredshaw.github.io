@@ -1,8 +1,20 @@
 import { useState, useEffect } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import './Header.css'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const { pathname } = useLocation()
+  const navigate = useNavigate()
+
+  function scrollTo(id) {
+    setMenuOpen(false)
+    if (pathname === '/') {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      navigate(`/?scroll=${id}`)
+    }
+  }
 
   useEffect(() => {
     if (!menuOpen) return
@@ -19,13 +31,19 @@ export default function Header() {
   return (
     <>
       <header className="header">
-        <a className="header-label header-link header-home" href="#top">
+        <Link className="header-label header-link header-home" to="/">
           <img src="/favicon.svg" alt="" className="header-logo" />
           Alex Redshaw
-        </a>
+        </Link>
         <nav className="header-nav">
-          <a className="header-label header-link" href="#skills">Skills</a>
-          <a className="header-label header-link" href="#timeline">Experience</a>
+          <button className="header-label header-link" onClick={() => scrollTo('skills')}>Skills</button>
+          <button className="header-label header-link" onClick={() => scrollTo('timeline')}>Experience</button>
+          <Link
+            className={`header-label header-link${pathname === '/projects' ? ' header-link--active' : ''}`}
+            to="/projects"
+          >
+            Projects
+          </Link>
           <a className="header-label header-link" href="https://github.com/Helligon/" target="_blank" rel="noreferrer">GitHub</a>
           <a className="header-label header-link" href="https://www.linkedin.com/in/alex-redshaw/" target="_blank" rel="noreferrer">LinkedIn</a>
         </nav>
@@ -39,15 +57,16 @@ export default function Header() {
       {menuOpen && (
         <div className="nav-overlay">
           <div className="nav-overlay-header">
-            <a className="header-label header-link header-home" href="#top" onClick={() => setMenuOpen(false)}>
+            <Link className="header-label header-link header-home" to="/" onClick={() => setMenuOpen(false)}>
               <img src="/favicon.svg" alt="" className="header-logo" />
               Alex Redshaw
-            </a>
+            </Link>
             <button className="nav-overlay-close" onClick={() => setMenuOpen(false)} aria-label="Close navigation">✕</button>
           </div>
           <nav className="nav-overlay-links">
-            <a className="nav-overlay-link" href="#skills" onClick={() => setMenuOpen(false)}>Skills</a>
-            <a className="nav-overlay-link" href="#timeline" onClick={() => setMenuOpen(false)}>Experience</a>
+            <button className="nav-overlay-link" onClick={() => scrollTo('skills')}>Skills</button>
+            <button className="nav-overlay-link" onClick={() => scrollTo('timeline')}>Experience</button>
+            <Link className="nav-overlay-link" to="/projects" onClick={() => setMenuOpen(false)}>Projects</Link>
             <a className="nav-overlay-link" href="https://github.com/Helligon/" target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}>GitHub</a>
             <a className="nav-overlay-link" href="https://www.linkedin.com/in/alex-redshaw/" target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}>LinkedIn</a>
           </nav>
