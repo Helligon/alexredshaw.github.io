@@ -58,7 +58,7 @@ body {
   letter-spacing: -0.03em;
   line-height: 0.88;
   text-transform: uppercase;
-  animation: nameIn 1.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: nameIn 3.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .main-right {
@@ -99,6 +99,8 @@ body {
   border: var(--border);
   cursor: pointer;
   align-self: flex-start;
+  text-decoration: none;
+  display: inline-block;
   transition: background 0.15s, color 0.15s;
 }
 
@@ -252,7 +254,7 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: opacity 1.5s ease, transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 3.0s ease, transform 3.0s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .timeline-node--hidden {
